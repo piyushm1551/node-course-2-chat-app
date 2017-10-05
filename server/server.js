@@ -24,16 +24,22 @@ console.log('New user connected');
 //   console.log('createEmail',newEmail);
 // })
 
-socket.emit('newMessage',{
-  from : 'Piyush',
-  text : 'Hii, have a nice day',
+// socket.emit('newMessage',{
+//   from : 'Piyush',
+//   text : 'Hii, have a nice day',
+//
+//   createAt : `${d.getUTCHours()}` + `:${d.getUTCMinutes()}`
+// });
 
-  createAt : `${d.getUTCHours()}` + `:${d.getUTCMinutes()}`
+socket.on('createMessage',(message) => {
+  console.log('createMessage',message);
+  io.emit('newMessage',{
+    from : message.from,
+    text : message.text,
+    createdAt : new Date().getTime()
+  });
 });
 
-socket.on('createMessage',(newMessage) => {
-  console.log('createMessage',newMessage);
-});
 socket.on('disconnect',(socket) => {
   console.log('User disconnected');
 });

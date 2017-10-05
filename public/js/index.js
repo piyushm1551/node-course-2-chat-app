@@ -8,10 +8,10 @@ socket.on('connect',function ()  {
 //   });
 // })
 
-socket.emit('createMessage',{
-  to : 'Dillu',
-  text : 'Hii, I am good'
-});
+// socket.emit('createMessage',{
+//   to : 'Dillu',
+//   text : 'Hii, I am good'
+// });
 })
 socket.on('disconnect',function ()  {
   console.log('Disconnected from server');
