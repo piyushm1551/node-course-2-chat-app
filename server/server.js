@@ -39,7 +39,7 @@ socket.broadcast.emit('newMessage',generateMessage('Admin','New User joined'));
 socket.on('createMessage',(message,callback) => {
   console.log('createMessage',message);
   io.emit('newMessage',generateMessage(message.from,message.text));
-  callback('This is from the server.');
+  callback();
   // socket.broadcast.emit('newMessage',{
   //   from : message.from,
   //   text : message.text,
@@ -48,6 +48,7 @@ socket.on('createMessage',(message,callback) => {
 });
 
 socket.on('createLocationMessage',(coords) => {
+  console.log(coords.latitude);
   io.emit('newLocationMessage',generateLocationMessage('Admin',coords.latitude,coords.longitude));
 });
 

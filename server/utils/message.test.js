@@ -22,5 +22,6 @@ describe('generateLocationMessage',() => {
     expect(url.createdAt).toBeA('number');
     //expect(url).toInclude({from,url});
     expect(url.url).toEqual(`https://www.google.com/maps?q=${latitude},${longitude}`);
+    console.log(url.url);
   });
 });
